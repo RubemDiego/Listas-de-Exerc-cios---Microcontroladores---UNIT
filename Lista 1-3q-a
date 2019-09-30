@@ -1,0 +1,36 @@
+/*
+ * main.c
+ *
+ *  Created on: 18 de set de 2019
+ *      Author: Rubem Diego
+ */
+
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    system("clear");
+    
+    int fat = 0, n = 0;
+    
+    cout << "*** Calculo de Vetorial ver1.0 ***" << endl;
+    cout << "   *** by Rubem Diego ***" << endl;
+    cout << "OBS: Esta versao dah OVERFLOW para numeros grandes! Maior que 17 dah ruim..." << endl;
+    cout << "Digite um Numero inteiro e positivo. Depois pressione ENTER:" << endl;
+    
+    cin >> n;
+    
+    for(fat = 1; n > 1; n = n - 1)
+    {
+        fat = fat * n;
+    }
+    
+    cout << fat << endl;
+
+    //return 0;
+        
+    system("pause");
+}
