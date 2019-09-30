@@ -1,0 +1,39 @@
+/*
+ * main.c
+ *
+ *  Created on: 28 de set de 2019
+ *      Author: Rubem Diego
+ */
+
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    system("clear");
+    
+    int num = 0, res = 0;
+    
+    cout << "*** Multiplicador por 1.5 SEM USO DE FLOAT ver1.0 ***" << endl;
+    cout << "           *** by Rubem Diego ***" << endl;
+    cout << "\nDigite um Numero inteiro e positivo. Depois pressione ENTER:\n" << endl;
+    
+    cin >> num;
+    
+    res = num * 1.5;
+    
+    if (num %2 == 0)
+    {
+        cout << "\nO resultado eh: " << res << "." << "0" <<endl;
+    }
+    else
+    {
+        cout << "\nO resultado eh: " << res << "." << "5" <<endl;
+    }
+    
+    //return 0;
+        
+    system("pause");
+}
