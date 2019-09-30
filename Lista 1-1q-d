@@ -1,0 +1,23 @@
+/*
+ * main.c
+ *
+ *  Created on: 16 de set de 2019
+ *      Author: Rubem Diego
+ */
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+  int contador;               
+  contador=1000;              
+  while (contador>=0)        
+  {
+    cout << contador << endl; 
+    contador=contador-3;       
+  }
+  return 0;
+}
