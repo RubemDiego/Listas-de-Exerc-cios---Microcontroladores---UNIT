@@ -1,0 +1,67 @@
+/*
+ * main.c
+ *
+ *  Created on: 28 de set de 2019
+ *      Author: Rubem Diego
+ */
+
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    system("clear");
+    
+    int num = 0, res = 0;
+    
+    cout << "*** Multiplicador por 0.75 SEM USO DE FLOAT ver1.0 ***" << endl;
+    cout << "           *** by Rubem Diego ***" << endl;
+    cout << "\nDigite um Numero inteiro e positivo. Depois pressione ENTER:\n" << endl;
+    
+    cin >> num;
+    
+    res = num * 0.75;
+    
+    if (num %10 == 0)
+    {
+        cout << "\nO resultado eh: " << res << "." << "50" <<endl;
+    }
+    if (num %9 == 0)
+    {
+        cout << "\nO resultado eh: " << res << "." << "75" <<endl;
+    }
+    else if (num %7 == 0)
+    {
+        cout << "\nO resultado eh: " << res << "." << "25" <<endl;
+    }
+    else if (num %6 == 0)
+    {
+        cout << "\nO resultado eh: " << res << "." << "50" <<endl;
+    }
+    else if (num %5 == 0)
+    {
+        cout << "\nO resultado eh: " << res << "." << "75" <<endl;
+    }
+    else if (num %4 == 0)
+    {
+        cout << "\nO resultado eh: " << res << "." << "00" <<endl;
+    }
+    else if (num %3 == 0)
+    {
+        cout << "\nO resultado eh: " << res << "." << "25" <<endl;
+    }        
+    else if (num %2 == 0)
+    {
+        cout << "\nO resultado eh: " << res << "." << "50" <<endl;
+    }
+    else if (num %1 == 0)
+    {
+        cout << "\nO resultado eh: " << res << "." << "75" <<endl;
+    }
+    
+    //return 0;
+    
+    system("pause");
+}
