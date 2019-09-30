@@ -1,0 +1,38 @@
+/*
+ * main.c
+ *
+ *  Created on: 28 de set de 2019
+ *      Author: Rubem Diego
+ */
+
+/*
+    C é do tipo inteiro. A operação não levará em consideração a parte decimal. Ou seja, a mesma será perdida.
+    
+    E outra, da forma como foi descrita "2/3" entre parênteses, no qual, ao seguir a sequencia de operação, o inicio será dado primeiramente o
+    que estiver entre parenteses. Então, 10*(2/3) na verdade fica como 10*(0.66666...). Como considera apenas a parte inteira, o resultado será do tipo int
+    o que é impresso no ecrã é 10*0 que é zero.
+    
+    A seguir será mostrado a correção disso:
+    
+*/
+
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+int main()
+{
+    system("clear");
+    
+    float c = 10;
+    float res;
+    
+    res = c*2/3;
+    
+	cout << "c == " << res << endl;
+
+    
+    //return 0;
+    
+    system("pause");
+}
