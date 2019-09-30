@@ -1,0 +1,24 @@
+/* main.c
+ *
+ *  Created on: 16 de set de 2019
+ *      Author: Rubem Diego
+ */
+
+//#include<stdio.h>
+//#include<stdlib.h>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+  int contador;               // Declara a variável contador.
+  contador=0;                 // contador recebe o valor 1.
+  while (contador<=1000)        // Enquanto contador for menor ou igual a 10.
+  {
+    cout << contador << endl; // Imprime contador.
+    contador=contador+2;               // Incrementa contador em uma unidade.
+  }
+  return 0;
+}
