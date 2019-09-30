@@ -1,0 +1,35 @@
+/*
+ * main.c
+ *
+ *  Created on: 28 de set de 2019
+ *      Author: Rubem Diego
+ */
+
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    //system("clear");
+    
+    unsigned int sequencia = 0;
+    unsigned int a = 1 , b = 1;
+    
+    cout << "*** Sequenciador de Numeros Fibonacci ateh 30 termos 1.0 ***" << endl;
+    cout << "           *** by Rubem Diego ***" << endl;
+    
+    cout << a << endl;
+    cout << b << endl;
+
+    for( int n = 0; n < 30; n++)
+    {
+        sequencia = (a + b);
+        cout << sequencia << endl;
+        a = b;
+        b = sequencia;
+    }
+           
+    system("pause"); 
+}
