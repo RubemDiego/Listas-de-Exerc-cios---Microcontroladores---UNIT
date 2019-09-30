@@ -1,0 +1,40 @@
+/*
+ * main.c
+ *
+ *  Created on: 28 de set de 2019
+ *      Author: Rubem Diego
+ */
+
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    //system("clear");
+    
+    unsigned int sequencia = 0;
+    unsigned int a = 1 , b = 1;
+    unsigned int limite = 0;
+    
+    cout << "*** Sequenciador de Numeros Fibonacci 1.0 ***" << endl;
+    cout << "          *** by Rubem Diego ***" << endl;
+    cout << "Digite o Numero inteiro e positivo que serah o numero de fatores da seq. de Fibonacci." << endl;
+    cout << "Depois pressione ENTER..." << endl;
+    
+    cin >> limite;
+    
+    cout << a << endl;
+    cout << b << endl;
+
+    for( int n = 0; n < limite; n++)
+    {
+        sequencia = (a + b);
+        cout << sequencia << endl;
+        a = b;
+        b = sequencia;
+    }
+           
+    system("pause"); 
+}
