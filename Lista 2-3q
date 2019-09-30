@@ -1,0 +1,49 @@
+/*
+ * main.c
+ *
+ *  Created on: 28 de set de 2019
+ *      Author: Rubem Diego
+ */
+
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int x[5];
+    int i, j, temp;
+
+    cout << "*** Organizando Vetor de 5 posicoes (menor para maior) ver1.0 ***" << endl;
+    cout << "               *** by Rubem Diego ***" << endl;
+    cout << "Digite 5 numeros do primeiro vetor de cada vez. Pressione ENTER:" << endl;
+    
+    //Entrada dos valores
+    for (i=0;i<5;i++)
+    {
+        cout << "Digite o numero " << i+1 << ":" << endl;
+        cin >> x[i];
+    }
+    
+    //Ordenando o vetor
+    for(i=0;i<5; i++)
+    for(j=i+1;j<5;j++)
+    {
+        if (x[i]>x[j])
+        {
+            temp=x[i];
+            x[i]=x[j];
+            x[j]=temp;
+        }
+    }
+    
+    //Imprimindo o vetor organizado: 
+    for (i=0;i<5;i++)
+    {
+        cout << "Imprimindo vetor ordenado do menor para maior: " << x[i] << endl;
+    }
+    system("pause");
+
+    return 0;
+}
