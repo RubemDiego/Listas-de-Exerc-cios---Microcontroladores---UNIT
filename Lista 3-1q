@@ -1,0 +1,81 @@
+/*
+ * main.c
+ *
+ *  Created on: 29 de set de 2019
+ *      Author: Rubem Diego
+ */
+
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+#define REVERSE_SHORT(n) ((unsigned short) (((n & 0xFF) << 8) | \((n & 0xFF00) >> 8)))
+                                            
+void printTcpHeader(uint8_t *buffer, uint16_t bufferLen);
+
+#pragma pack(push,1)
+
+typedef struct tcp
+{
+        //! Source port.
+        uint16_t tcp_src;
+        //! Destination port.
+         uint16_t tcp_dst;
+
+        //! Sequence number.
+         uint32_t tcp_seq_num;
+        //! ACK number.
+         uint32_t tcp_ack_num;
+
+	//!_BYTE_ORDER_ == _BIG_ENDIAN_
+        //! Header length.
+        uint8_t tcp_hdr_len:4;
+        //! Reserved.
+        uint8_t tcp_res:6;
+        //! URG flag.
+        uint8_t tcp_urg:1;
+        //! ACK flag.
+        uint8_t tcp_ack:1;
+        //! PSH flag.
+        uint8_t tcp_psh:1;
+        //! RST flag.
+        uint8_t tcp_rst:1;
+        //! SYN flag.
+        uint8_t tcp_syn:1;
+        //! FIN flag.
+        uint8_t tcp_fin:1;
+
+        //! Window size.
+         uint16_t tcp_win_size;
+        //! TCP checksum.
+         uint16_t tcp_chk;
+        //! Urgent pointer.
+         uint16_t tcp_urg_ptr;
+        
+}tcp_t;
+#pragma pack(pop)
+
+int main()
+{
+	tcp_t *packet;
+	
+	uint8_t input[] = {0x00, 0x01, 0x03, 0x04};
+	printTcpHeader(input, 4);
+	
+	return 0;
+}
+
+void printTcpHeader(uint8_t *buffer, uint16_t bufferLen)
+{
+	tcp_t *packet;
+	
+	if(( NULL == buffer) || (bufferLen == 0) )
+	{
+		//prinf invalid parameter error
+		return;
+	}
+	
+	packet = (tcp_t*)(buffer);
+	cout << "sourc port: " << REVERSE_SHORT (packet->tcp_src); 
+}
