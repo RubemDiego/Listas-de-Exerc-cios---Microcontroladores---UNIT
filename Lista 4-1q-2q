@@ -1,0 +1,267 @@
+/*
+ * main.c
+ *
+ *  Created on: 28 de set de 2019
+ *      Author: Rubem Diego
+ */
+
+#include <cstdlib>
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+class Poligono
+{
+    protected:
+        int lados;
+    public:
+        virtual float getPerimetro() = 0;
+        virtual float getArea() = 0;
+};
+
+class Quadrilatero : public Poligono
+{
+    public:
+        Quadrilatero()
+        {
+            lados = 4;
+        }
+};
+
+class Triangulo : public Poligono
+{
+    public:
+        Triangulo()
+        {
+            lados = 3;
+        }
+};
+
+class Paralelogramo : public Quadrilatero
+{
+      private:
+         float base;
+         float altura;
+      public:
+         Paralelogramo()
+         {
+         }
+         Paralelogramo(float base, float altura)
+         {
+            this->base = base;
+            this->altura = altura;
+         }
+      float getArea()
+      {
+            return (this->base * this->altura);
+      }
+      
+      float getPerimetro()
+      {
+            return (2 * this->base + 2 * this->altura);
+      }
+      
+      int getLados() {return this->lados;}
+};
+
+class Retangulo : public Quadrilatero
+{
+      private:
+         float base;
+         float altura;
+      public:
+         Retangulo()
+         {
+         }
+         Retangulo(float base, float altura)
+         {
+            this->base = base;
+            this->altura = altura;
+         }
+      float getArea()
+      {
+            return (this->base * this->altura);
+      }
+      
+      float getPerimetro()
+      {
+            return (2 * this->base + 2 * this->altura);
+      }
+      
+      int getLados() {return this->lados;}
+};
+
+class Quadrado : public Retangulo
+{
+      public:
+         Quadrado()
+         {
+            }
+                Quadrado(float lado) : Retangulo(lado, lado)
+            {           
+         }
+};
+
+class Trapezio : public Quadrilatero
+{
+      private:
+         float base_Ma, base_me;
+         float altura;
+      public:
+         Trapezio()
+         {
+         }
+         Trapezio(float base_Ma, float base_me, float altura)
+         {
+            this->base_Ma = base_Ma;
+            this->base_me = base_me;
+            this->altura = altura;
+         }
+      float getArea()
+      {
+            return (((this->base_Ma + this->base_me)* this->altura)/2);
+      }
+      
+      float getPerimetro()
+      {
+            return (2 * this->base_Ma + this->base_me + (2 * this->altura));
+      }
+      
+      int getLados() {return this->lados;}
+};
+
+class Escaleno : public Triangulo
+{
+      private:
+         float base;
+         float altura;
+         float lado_1, lado_2, lado_3;
+      public:
+         Escaleno()
+         {
+         }
+         Escaleno(float base, float altura, float lado_1, float lado_2, float lado_3)
+         {
+            this->base = base;
+            this->altura = altura;
+            this->lado_1 = lado_1;
+            this->lado_2 = lado_2;
+            this->lado_3 = lado_3;
+         }
+      float getArea()
+      {
+            return ((this->base* this->altura)/2);
+      }
+      
+      float getPerimetro()
+      {
+            return (this->lado_1 + this->lado_2 + this->lado_3);
+      }
+      
+      int getLados() {return this->lados;}
+};
+
+class Isosceles : public Triangulo
+{
+      private:
+         float base;
+         float altura;
+         float lado;
+      public:
+         Isosceles()
+         {
+         }
+         Isosceles(float base, float altura, float lado)
+         {
+            this->base = base;
+            this->altura = altura;
+            this->lado = lado;
+         }
+      float getArea()
+      {
+            return ((this->base* this->altura)/2);
+      }
+      
+      float getPerimetro()
+      {
+            return ((2 * this->lado) + this->base);
+      }
+      
+      int getLados() {return this->lados;}
+};
+/*
+class Triangulo_Ret : public Isosceles
+{
+      public:
+         Triangulo_Ret()
+         {
+            }
+                Triangulo_Ret(float lado) : Isosceles(lado, lado)
+            {           
+         }
+};
+*/
+Poligono * getPoligono(int lados, float base, float altura)
+{
+    if( 4 == lados)
+    {
+        if(base == altura)
+        {
+            return new Quadrado(base);
+        }
+        return new Retangulo(base,altura);
+    }
+    return 0;
+}
+
+
+int main(int argc, char *argv[])
+{
+    /*
+    int l;
+    
+    cout << "*** Relacao de Formas Geometricas - Usando CLASSES - ver1.0 ***" << endl;
+    cout << "               *** by Rubem Diego ***" << endl;
+    cout << "Digite o numero de lados do poligono:" << endl;
+    
+    cin >> l;
+    
+    if( 4 == l)
+    {
+        cout << "Eh um quarilatero" << endl;
+    }
+    else if( 3 == l)
+    {
+        cout << "Eh um triangulo" << endl;
+    }
+    else if(l!=4||l!=3)
+    {
+        cout << "Foi triste... Esse programa eh limitado. :(" << endl;
+    }
+    */
+    
+    //Testando os calculos de area e perimetro... (amarretado no codigo).
+    
+    Poligono* c = new Quadrado(5);
+    
+    printf("area = %f\n", c->getArea());
+    printf("perimetro = %f\n", c->getPerimetro());  
+    
+    //printf("lados = %d\n", c->getLados()); 
+    
+    c = new Retangulo(10, 3);
+    printf("area = %f\n", c->getArea());
+    printf("perimetro = %f\n", c->getPerimetro());  
+    
+    c = getPoligono(4, 5, 5);
+    printf("area = %f\n", c->getArea());
+    printf("perimetro = %f\n", c->getPerimetro()); 
+    
+    c = getPoligono(4, 10, 5);
+    printf("area = %f\n", c->getArea());
+    printf("perimetro = %f\n", c->getPerimetro()); 
+    
+    system("PAUSE");
+    return EXIT_SUCCESS;
+}
